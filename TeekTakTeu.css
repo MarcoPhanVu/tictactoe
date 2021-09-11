@@ -1,0 +1,167 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --cell-size: 100px;
+    --marksize: calc(var(--cell-size) * 0.8);
+    --main-color: #000;
+    --X-color: #fff;
+    --Xhover-color: #888888;
+    --O-color: #fff;
+    --Ohover-color: #888888;
+    --modalMain-color: #fff;
+}
+
+.modal{
+    display: none;
+    margin: 25vh 30vw 25vh 30vw;
+    position: fixed;
+    z-index: 1;
+    width: 40%;
+    height: 50%;
+    background-color: #000000BF;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    flex-direction: column;
+}
+
+.text{
+    font-size: 5rem;
+    color: var(--modalMain-color);
+    margin-bottom: 2.5%;
+}
+
+#restartButton{
+    position: relative;
+    font-size: 2rem;
+    width: 35%;
+    height: 25%;
+    color: var(--modalMain-color);
+    border: 2px solid var(--modalMain-color);
+    background: #000;
+    cursor: pointer;
+    transition: 400ms ease all;
+}
+#restartButton:hover{
+    color: #000;
+    z-index: 1;
+}
+#restartButton::before{
+    position: absolute;
+    content: '';
+    background-color: var(--modalMain-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    transition: 400ms ease all;
+}
+
+#restartButton:hover:before{
+    left: 0%;
+    right: 0%;
+    z-index: -1;
+}
+
+.modal.active{
+    display: flex;
+    transition: 400ms ease all;
+}
+/*
+#restartButton::before{
+    left: 0%;
+    right: 0%;
+    z-index: -1;
+}*/
+/*BOARD*/
+.board{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content:center ;
+    background-color: var(--main-color);
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell{
+    position: relative;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    /*background-color: var(--main-color);*/
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+/*Selected cells*/
+.cell.x, .cell.o{
+    cursor: not-allowed;
+}
+/*Minimalize the Board*/
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){border-top: none;}
+.cell:nth-child(3n){border-right: none;}
+.cell:nth-child(3n+1){border-left: none;}
+.cell:nth-child(n+7){border-bottom: none;}
+
+/*X*/
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x, .o):hover:after,
+.board.x .cell:not(.x, .o):hover:before {
+    position: absolute;
+    content:'';
+    width: calc(var(--marksize) * 0.125);
+    height: var(--marksize);
+    background-color: var(--X-color);
+}
+.cell.x::before,
+.board.x .cell:hover::before
+ {
+    transform: rotate(45deg);
+}
+.cell.x::after,
+.board.x .cell:hover:after
+ {
+    transform: rotate(-45deg);
+}
+/*X Hovering */
+.board.x .cell:not(.x, .o):hover:after,
+.board.x .cell:not(.x, .o):hover:before {
+    background-color: var(--Xhover-color);
+}
+/*O*/
+.cell.o::after,
+.cell.o::before,
+.board.o .cell:not(.x, .o):hover:after,
+.board.o .cell:not(.x, .o):hover:before{
+    position: absolute;
+    content:'';
+    border-radius: var(--marksize);
+}
+
+.cell.o::before,
+.board.o .cell:not(.x, .o):hover:before {
+    width: var(--marksize);
+    height: var(--marksize);
+    background-color: var(--O-color);
+}
+.cell.o::after,
+.board.o .cell:not(.x, .o):hover:after {
+    width: calc(var(--marksize) * 0.75);
+    height: calc(var(--marksize) * 0.75);
+    background-color: var(--main-color);
+}
+/*O Hovering */
+.board.o .cell:not(.x, .o):hover:before {
+    background-color: var(--Ohover-color);
+}
+
+
