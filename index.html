@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type ="text/css" href = "TeekTakTeu.css"></link>
+    <title>TeekTakTeu</title>
+</head>
+<body>
+    <div class="mainContainer" id="mainContainer">
+        <a id ="gameTitle" href = 'https://www.facebook.com/kiteryukatori'>TIC TAC TOE</a>
+        <div id = 'turnIndicator'>X's Turn</div>
+        <div id = 'gameContainer'>
+            <div class="modal" id="mainModal">
+                <div id="announcement">Win</div>
+                <button restartButton id="restartButton">Press me!</button>
+            </div>
+            <div class="board" id="board">  
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+            </div>    
+        </div>
+        
+        <div id="scoreBoard" class="scoreBoard">
+            <div class="score" id="PXScore">X: 0</div>
+            <div class="score" id="Tie">Tie: 0</div>
+            <div class="score" id="POScore">O: 0</div>
+        </div>
+    </div>
+    
+
+    <script src = "TikTakTou.js"></script>
+</body>
+</html>
