@@ -8,22 +8,34 @@
     <title>TeekTakTeu</title>
 </head>
 <body>
-    <div class="modal" id="mainModal">
-        <div class="text" id="announcement">Win</div>
-        <button restartButton id="restartButton">Press me!</button>
+    <div class="mainContainer" id="mainContainer">
+        <a id ="gameTitle" href = 'https://www.facebook.com/kiteryukatori'>TIC TAC TOE</a>
+        <div id = 'turnIndicator'>X's Turn</div>
+        <div id = 'gameContainer'>
+            <div class="modal" id="mainModal">
+                <div id="announcement">Win</div>
+                <button restartButton id="restartButton">Press me!</button>
+            </div>
+            <div class="board" id="board">  
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+                <div data-cell class="cell"></div>
+            </div>    
+        </div>
+        
+        <div id="scoreBoard" class="scoreBoard">
+            <div class="score" id="PXScore">X: 0</div>
+            <div class="score" id="Tie">Tie: 0</div>
+            <div class="score" id="POScore">O: 0</div>
+        </div>
     </div>
     
-    <div class="board" id="board">
-        <div data-cell class="cell"></div>
-        <div data-cell class="cell"></div>
-        <div data-cell class="cell"></div>
-        <div data-cell class="cell"></div>
-        <div data-cell class="cell"></div>
-        <div data-cell class="cell"></div>
-        <div data-cell class="cell"></div>
-        <div data-cell class="cell"></div>
-        <div data-cell class="cell"></div>
-    </div>
 
     <script src = "TikTakTou.js"></script>
 </body>
