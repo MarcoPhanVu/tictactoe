@@ -33,7 +33,7 @@ var tieCount = 0;
 startTheGame();
 restartButton.addEventListener('click', restartGame);
 
-function startTheGame(){
+function startTheGame() {
     turnCount = 0;
     Hover();
     allCells.forEach(cell => {
@@ -41,7 +41,7 @@ function startTheGame(){
     })
 }
 
-function handleUserClick(ev){
+function handleUserClick(ev) {
     //Check Turn
     const cell = ev.target;
     var Turn = xTurn? 'x' : 'o';
@@ -54,9 +54,9 @@ function handleUserClick(ev){
     turnIndicator.innerText = currentTurn.toUpperCase() + "'s turn";
 }
 
-function Hover(){
+function Hover() {
     board.classList.remove('x', 'o');
-    if (xTurn){
+    if (xTurn) {
         board.classList.add('x');
     }
     else {
@@ -64,7 +64,7 @@ function Hover(){
     }
 }
 
-function checkGameStat(Turn){
+function checkGameStat(Turn) {
     let win = false;
     //STILL NEED TO TRY TO UNDER STAND THIS MORE
     win = winning_sets.some(set => {//If wining_set included a set of cells 
@@ -73,7 +73,7 @@ function checkGameStat(Turn){
         });
     });
 
-    if (win){
+    if (win) {
         let Player = Turn;
         message.innerText = Player.toUpperCase() + " Won";
         mainModal.classList.add('active');
@@ -81,7 +81,7 @@ function checkGameStat(Turn){
         updateScore();
     }
 
-    else if (turnCount == count){
+    else if (turnCount == count) {
         message.innerText = 'TIE';
         mainModal.classList.add('active');
         TIE = true;
@@ -89,7 +89,7 @@ function checkGameStat(Turn){
     }
 }
 
-function restartGame(){
+function restartGame() {
     mainModal.classList.remove('active');
     startTheGame();
     allCells.forEach(cell => {
@@ -99,20 +99,20 @@ function restartGame(){
     turnIndicator.innerText = currentTurn.toUpperCase() +"'s turn";
 }
 
-function updateScore(){
-    if(WIN){
-        if(xTurn){
+function updateScore() {
+    if(WIN) {
+        if(xTurn) {
             xScore ++;
             xScoreCounter.innerText = 'X: ' + xScore;
             WIN = false;
         }
-        else if(!xTurn){
+        else if(!xTurn) {
             oScore ++;
             oScoreCounter.innerText = 'O: ' + oScore;
             WIN = false;
         }
     }
-    else if(TIE){
+    else if(TIE) {
         tieCount ++;
         tieCounter.innerText = 'Tie: ' + tieCount;
         TIE = false;

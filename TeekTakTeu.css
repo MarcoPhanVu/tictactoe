@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
-*, *::after, *::before{
+
+*, *::after, *::before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Nunito';
 }
-:root{
+:root {
     --cell-size: 15vh;
     --marksize: calc(var(--cell-size) * 0.8);
     --background-color: #000000;
@@ -18,7 +19,7 @@
 
 
 /*MAIN CONTAINER*/
-#mainContainer{
+#mainContainer {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -32,7 +33,7 @@
 
 
 
-#gameTitle{
+#gameTitle {
     text-decoration: none;
     position: absolute;
     font-size: 5em;
@@ -47,7 +48,7 @@
     overflow: hidden;
 }
 
-#gameTitle::after{
+#gameTitle::after {
     content: 'Made by: Phan Vũ Tuấn Anh';
     position: absolute;
     text-align: center;
@@ -61,30 +62,30 @@
     cursor: pointer;
 }
 
-#gameTitle:hover:after{
+#gameTitle:hover:after {
     animation: showingURL 500ms forwards;
     
 }
-@keyframes showingURL{
-    from{content: 'Made by: Phan Vũ Tuấn Anh';}
-    25%{transform: translateY(120%);}
-    50%{
+@keyframes showingURL {
+    from {content: 'Made by: Phan Vũ Tuấn Anh';}
+    25% {transform: translateY(120%);}
+    50% {
         transform: translateY(120%);
         border: 2px solid var(--main-color);
         border-radius: 20px;}
-    75%{
+    75% {
         content: '';
         transform: translateY(120%);
         border: 2px solid var(--main-color);
         border-radius: 20px;}
-    to{
-    content: 'https://www.facebook.com/kiteryukatori/';
+    to {
+    content: 'https://www.facebook.com/phanvutuananh241203/';
     border: 2px solid var(--main-color);
     border-radius: 20px;}
 }
 
 
-#turnIndicator{
+#turnIndicator {
     text-align: center;
     width: 20%;
     border: 2px var(--main-color) solid;
@@ -100,7 +101,7 @@
 
 
 /*GAME CONTAINER*/
-#gameContainer{
+#gameContainer {
     position: absolute;
     margin-top: 10%;
     width: 60%;
@@ -110,7 +111,7 @@
     justify-content: center;
 }
 /*MAIN MODAL*/
-.modal{
+.modal {
     display: none;
     position: absolute;
     width: 100%;
@@ -121,12 +122,12 @@
     z-index: 1;
     flex-direction: column;
 }
-#announcement{
+#announcement {
     font-size: 5em;
     color: var(--main-color);
     margin-bottom: 2.5%;
 }
-#restartButton{
+#restartButton {
     position: relative;
     font-size: 2em;
     width: 200px;
@@ -137,11 +138,11 @@
     cursor: pointer;
     transition: 400ms ease all;
 }
-#restartButton:hover{
+#restartButton:hover {
     color: var(--background-color);
     z-index: 1;
 }
-#restartButton::before{
+#restartButton::before {
     position: absolute;
     content: '';
     background-color: var(--main-color);
@@ -151,19 +152,19 @@
     right: 51%;
     transition: 400ms ease all;
 }
-#restartButton:hover:before{
+#restartButton:hover:before {
     left: 0%;
     right: 0%;
     z-index: -1;
 }
-.modal.active{
+.modal.active {
     display: flex;
     transition: 400ms ease all;
 }
 
 
 /*BOARD*/
-.board{
+.board {
     position: absolute;
     width: 80%;
     height: 100%;
@@ -173,7 +174,7 @@
     background-color: var(--background-color);
     grid-template-columns: repeat(3, auto);
 }
-.cell{
+.cell {
     position: relative;
     width: var(--cell-size);
     height: var(--cell-size);
@@ -184,16 +185,16 @@
     cursor: pointer;
 }
 /*Selected cells*/
-.cell.x, .cell.o{
+.cell.x, .cell.o {
     cursor: not-allowed;
 }
 /*Minimalize the Board*/
 .cell:first-child,
 .cell:nth-child(2),
-.cell:nth-child(3){border-top: none;}
-.cell:nth-child(3n){border-right: none;}
-.cell:nth-child(3n+1){border-left: none;}
-.cell:nth-child(n+7){border-bottom: none;}
+.cell:nth-child(3) {border-top: none;}
+.cell:nth-child(3n) {border-right: none;}
+.cell:nth-child(3n+1) {border-left: none;}
+.cell:nth-child(n+7) {border-bottom: none;}
 
 /*X*/
 .cell.x::before,
@@ -225,7 +226,7 @@
 .cell.o::after,
 .cell.o::before,
 .board.o .cell:not(.x, .o):hover:after,
-.board.o .cell:not(.x, .o):hover:before{
+.board.o .cell:not(.x, .o):hover:before {
     position: absolute;
     content:'';
     border-radius: var(--marksize);
@@ -262,7 +263,7 @@
     align-items: center;
 }
 
-.score{
+.score {
     color: var(--main-color);
     font-size: 2em;
 }
